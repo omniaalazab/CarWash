@@ -1,12 +1,14 @@
-import 'package:car_wash_app/controller/check_text_field.dart';
-import 'package:car_wash_app/controller/upadte_profile.dart';
+import 'package:car_wash_app/controller/check_empty_validation_text_field.dart';
+
 import 'package:car_wash_app/helper/color_helper.dart';
 import 'package:car_wash_app/helper/text_style_helper.dart';
 import 'package:car_wash_app/ui/widget/shared_widget/cuatom_text_field_with_keyboard_type.dart';
 import 'package:car_wash_app/ui/widget/shared_widget/custom_dropdown_menu.dart';
 import 'package:car_wash_app/ui/widget/shared_widget/custom_elevated_button.dart';
+import 'package:car_wash_app/ui/widget/update_profile/change_password.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:hexcolor/hexcolor.dart';
 
@@ -94,7 +96,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                         children: [
                           CustomAllTextField(
                             validatorFunction: (value) {
-                              CheckTextField.checkIsEmpty(value);
+                              CheckEmptyValidationTextField.checkIsEmpty(value);
                               return null;
                             },
                             labelText: "اسم بالكامل",
@@ -105,7 +107,8 @@ class _UpdateProfileState extends State<UpdateProfile> {
                           ),
                           CustomAllTextField(
                               validatorFunction: (value) {
-                                CheckTextField.checkIsEmpty(value);
+                                CheckEmptyValidationTextField.checkIsEmpty(
+                                    value);
                                 return null;
                               },
                               labelText: "رقم الهاتف",
@@ -115,7 +118,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                           ),
                           CustomAllTextField(
                             validatorFunction: (value) {
-                              CheckTextField.checkIsEmpty(value);
+                              CheckEmptyValidationTextField.checkIsEmpty(value);
                               return null;
                             },
                             textFieldController: mailController,
@@ -140,7 +143,10 @@ class _UpdateProfileState extends State<UpdateProfile> {
                             fontWeight: FontWeight.w700,
                             buttonText: "تغيير كلمة المرور",
                             onPressedFunction: () {
-                              ChangePasswordBottomSheet.bottomSheet();
+                              Get.bottomSheet(
+                                backgroundColor: Colors.white,
+                                const BottomSheetModel(),
+                              );
                             },
                             backColor: Colors.white,
                             sideColor: HexColor("EFA134"),
